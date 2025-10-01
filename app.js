@@ -15,7 +15,7 @@ const bikesData = [
         weight: "181 kg",
         seatHeight: "800 mm",
         fuelCapacity: "15 L",
-        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+        images: ["images/hunter-350-1.jpg", "images/hunter-350-2.jpg", "images/hunter-350-3.jpg", "images/hunter-350-4.jpg", "images/hunter-350-5.jpg"],
         description: "The lightest and most agile Royal Enfield, perfect for city commuting and young riders",
         bestFor: ["City commuting", "Young riders", "First-time RE buyers", "Fuel efficiency"],
         terrain: ["City roads", "Highway cruising"],
