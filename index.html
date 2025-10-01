@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Enfield Bike Finder - Find Your Perfect Match</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container flex items-center justify-between">
+            <div class="logo">
+                <h2>Royal Enfield</h2>
+                <span>Bike Finder</span>
+            </div>
+            <div class="nav-links">
+                <button class="btn btn--outline" onclick="showSection('home')">Home</button>
+                <button class="btn btn--outline" onclick="showSection('all-bikes')">All Bikes</button>
+                <button class="btn btn--primary" onclick="startQuestionnaire()">Find My Bike</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Find Your Perfect Royal Enfield</h1>
+                    <p>Discover which Royal Enfield matches your riding style, budget, and preferences through our intelligent bike recommendation system.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn--primary btn--lg" onclick="startQuestionnaire()">
+                            Find My Royal Enfield
+                        </button>
+                        <button class="btn btn--outline btn--lg" onclick="showSection('all-bikes')">
+                            Browse All Bikes
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=800&q=80" alt="Royal Enfield Classic 350" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Questionnaire Section -->
+    <section id="questionnaire" class="questionnaire hidden">
+        <div class="container">
+            <div class="questionnaire-header">
+                <h2>Find Your Perfect Royal Enfield</h2>
+                <p>Answer a few questions to get personalized bike recommendations</p>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <span class="progress-text">Question <span id="current-question">1</span> of <span id="total-questions">8</span></span>
+            </div>
+            
+            <div class="question-container">
+                <div id="question-content"></div>
+            </div>
+            
+            <div class="questionnaire-navigation">
+                <button class="btn btn--outline" id="prev-btn" onclick="previousQuestion()" style="display: none;">Previous</button>
+                <button class="btn btn--primary" id="next-btn" onclick="nextQuestion()">Next</button>
+                <button class="btn btn--primary" id="submit-btn" onclick="submitQuestionnaire()" style="display: none;">Get My Recommendations</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations Section -->
+    <section id="recommendations" class="recommendations hidden">
+        <div class="container">
+            <div class="recommendations-header">
+                <h2>Your Perfect Royal Enfield Matches</h2>
+                <p>Based on your preferences, here are our top recommendations for you</p>
+            </div>
+            <div id="recommended-bikes" class="bike-grid"></div>
+            <div class="recommendations-actions">
+                <button class="btn btn--outline" onclick="startQuestionnaire()">Take Quiz Again</button>
+                <button class="btn btn--primary" onclick="showSection('all-bikes')">Compare All Bikes</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Bikes Section -->
+    <section id="all-bikes" class="all-bikes hidden">
+        <div class="container">
+            <div class="all-bikes-header">
+                <h2>Complete Royal Enfield Lineup</h2>
+                <p>Explore all Royal Enfield motorcycles and find your perfect match</p>
+            </div>
+            
+            <!-- Filters -->
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="segment-filter">Segment:</label>
+                    <select id="segment-filter" onchange="filterBikes()">
+                        <option value="">All Segments</option>
+                        <option value="350cc">350cc Bikes</option>
+                        <option value="450cc">450cc Bikes</option>
+                        <option value="650cc">650cc Bikes</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="category-filter">Category:</label>
+                    <select id="category-filter" onchange="filterBikes()">
+                        <option value="">All Categories</option>
+                        <option value="Roadster">Roadster</option>
+                        <option value="Classic">Classic</option>
+                        <option value="Cruiser">Cruiser</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Scrambler">Scrambler</option>
+                        <option value="Cafe Racer">Cafe Racer</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="price-filter">Price Range:</label>
+                    <select id="price-filter" onchange="filterBikes()">
+                        <option value="">All Prices</option>
+                        <option value="budget">Under ₹2 Lakh</option>
+                        <option value="mid">₹2-3 Lakh</option>
+                        <option value="premium">Above ₹3 Lakh</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="all-bikes-grid" class="bike-grid"></div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="comparison hidden">
+        <div class="container">
+            <div class="comparison-header">
+                <h2>Bike Comparison</h2>
+                <p>Compare selected Royal Enfield motorcycles side by side</p>
+            </div>
+            <div id="comparison-table"></div>
+            <button class="btn btn--outline" onclick="showSection('all-bikes')">Back to All Bikes</button>
+        </div>
+    </section>
+
+    <!-- Bike Detail Modal -->
+    <div id="bike-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="bike-detail-content"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Royal Enfield Bike Finder. This is an unofficial recommendation tool.</p>
+            <p>All bike specifications and prices are approximate. Please verify with official dealers.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
