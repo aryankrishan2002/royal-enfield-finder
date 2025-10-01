@@ -558,7 +558,7 @@ function createBikeCard(bike, isRecommended = false, recommendationRank = '') {
     
     return `
         <div class="bike-card ${isRecommended ? 'recommended' : ''}" onclick="showBikeDetail('${bike.id}')">
-            <img src="${bike.image}" alt="${bike.name}" class="bike-image">
+            <img src="${bike.image[0]}" alt="${bike.name}" class="bike-image">
             <div class="bike-info">
                 <h3 class="bike-name">${bike.name}</h3>
                 <p class="bike-segment">${bike.segment}</p>
@@ -612,7 +612,7 @@ function showBikeDetail(bikeId) {
     
     content.innerHTML = `
         <h2>${bike.name}</h2>
-        <img src="${bike.image}" alt="${bike.name}" style="width: 100%; max-width: 400px; border-radius: 10px; margin: 1rem 0;">
+        bike.images.forEach(img => { detailHtml += `<img src="${img}" class="bike-detail-photo">`});
         
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
             <div>
