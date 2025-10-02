@@ -1,0 +1,37 @@
+# GitHub Upload Checklist
+
+## Files to Upload (15 total):
+
+### Main Files:
+- [ ] index.html ✅ (created)
+- [ ] README.md ✅ (created)
+
+### Bike Images (13 files):
+- [ ] Bullet 350.jpg
+- [ ] Classic 350.jpg
+- [ ] Hunter 350.jpg
+- [ ] Meteor 350.jpg
+- [ ] Goan classic 350 .jpg
+- [ ] _Guerrilla 450.jpg
+- [ ] Scram 440.jpg
+- [ ] Himalayan 450.jpg
+- [ ] Super Meteor 650.jpg
+- [ ] Classic 650.jpg
+- [ ] Bear 650.jpg
+- [ ] continental GT 650.jpg
+- [ ] Shotgun 650.jpg
+
+### Additional Image Needed:
+- [ ] Interceptor 650.jpg (replace placeholder in code)
+
+## Steps:
+1. [ ] Convert PDF images to JPG/PNG
+2. [ ] Create GitHub repository
+3. [ ] Upload all files
+4. [ ] Enable GitHub Pages
+5. [ ] Test website
+
+## Important:
+- File names must match exactly (case-sensitive)
+- All images should be in root folder with index.html
+- Repository must be public for GitHub Pages
